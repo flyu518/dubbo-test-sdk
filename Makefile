@@ -22,11 +22,3 @@ proto-user:
 	@protoc --go_out=./ --go_opt=paths=source_relative \
 	--go-triple_out=./ --go-triple_opt=paths=source_relative \
 	${USER_PROTO_DIR}/*.proto
-
-.PHONY: update
-update:
-	@go get -u
-
-.PHONY: tidy
-tidy:
-	@go mod tidy
