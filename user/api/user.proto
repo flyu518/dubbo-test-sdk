@@ -1,0 +1,44 @@
+syntax = "proto3";
+package lingmou.simple.sdk.user.api;
+
+// 这个地方不指定 github 等远程地址了，生成的 triple.go 文件路径有问题，暂时不找原因了
+option go_package = "user/api;api";
+
+service UserService {
+    rpc Register(RegisterRequest) returns (RegisterResponse) {}
+    rpc Login(LoginRequest) returns (LoginResponse) {}
+    rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+}
+
+message User {
+    string username = 1;
+    string email = 3;
+    string phone = 4;
+}
+
+message RegisterRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message RegisterResponse {
+    bool success = 1;
+}
+
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    User user = 1;
+    string token = 2;
+}
+
+message GetUserRequest {
+    string username = 1;
+}
+
+message GetUserResponse {
+    User user = 1;
+}
