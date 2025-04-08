@@ -2,7 +2,7 @@ syntax = "proto3";
 package lingmou.simple.sdk.user.api;
 
 // 这个地方不指定 github 等远程地址了，生成的 triple.go 文件路径有问题，暂时不找原因了
-option go_package = "user/api;api";
+option go_package = "github.com/flyu518/dubbo-test-sdk/user/api;api";
 
 service UserService {
     rpc Register(RegisterRequest) returns (RegisterResponse) {}
